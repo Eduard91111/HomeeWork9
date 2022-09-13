@@ -3,7 +3,7 @@ public class Main {
         book2 ();
     }
     public static void book1 () {
-        Book book = new Book("Мобильник", 2009);
+        Book book = new Book("Мобильник", 2009, new Author("Стивен", "Кинг"));
         Author author = new Author("Стивен", "Кинг");
         System.out.println("Название книги: " + book.getNameBook() + ";");
         System.out.println("Год издательства: " + book.getYearOfPublication () + ";");
@@ -11,7 +11,7 @@ public class Main {
         System.out.println("Фамилия автора: " + author.getLastNameOfTheAuthor() + ";");
     }
     public static void book2 () {
-        Book book = new Book("Преступление и наказание", 2007);
+        Book book = new Book ("Преступление и наказание", 2007,new Author("Федор", "Достоевский") );
         Author author = new Author("Федор", "Достоевский");
         System.out.println("Название книги: " + book.getNameBook() + ";");
         System.out.println("Год издательства: " + book.getYearOfPublication () + ";");
