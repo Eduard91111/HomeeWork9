@@ -1,5 +1,7 @@
 package HomeeWork10;
 
+import java.util.Objects;
+
 public class Author {
 
     private String AuthorsName;
@@ -15,15 +17,22 @@ public class Author {
     public String getLastNameOfTheAuthor() {
         return LastNameOfTheAuthor;
     }
+    @Override
     public String toString() {
-        return "Имя автора: " + getAuthorsName() + ";";
+        return "Author{" +
+                "AuthorsName='" + AuthorsName + '\'' +
+                ", LastNameOfTheAuthor='" + LastNameOfTheAuthor + '\'' +
+                '}';
     }
-    public Author () {
-        Author author = new Author("Стивен", "Кинг");;
-        Author author2 = author;
-        System.out.println(author.equals(author2));
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Author author = (Author) o;
+        return AuthorsName.equals(author.AuthorsName) && LastNameOfTheAuthor.equals(author.LastNameOfTheAuthor);
     }
+    @Override
     public int hashCode() {
-        return java.util.Objects.hash(AuthorsName);
+        return Objects.hash(AuthorsName, LastNameOfTheAuthor);
     }
 }

@@ -1,31 +1,48 @@
 package HomeeWork10;
 
+import java.util.Objects;
+
 public class Book {
     private String NameBook;
     private int yearOfPublication;
-    private Author Author;
+    private Author author;
 
-    public Book(String NameBook, int yearOfPublication, Author Author) {
+    public Book(String NameBook, Author author, int yearOfPublication) {
         this.NameBook = NameBook;
+        this.author = author;
         this.yearOfPublication = yearOfPublication;
-        this.Author = new Author("Стивен", "Кинг");
+
     }
     public String getNameBook() {
         return NameBook;
+    }
+    public Author getAuthor() {
+        return author;
     }
     public int getYearOfPublication() {return yearOfPublication;}
     public void setYearOfPublication(int yearOfPublication) {
         this.yearOfPublication = yearOfPublication;
     }
+
+    @Override
     public String toString() {
-        return "Название книги: " + getNameBook() + ";";
+        return "Book{" +
+                "NameBook='" + NameBook + '\'' +
+                ", yearOfPublication=" + yearOfPublication +
+                ", author=" + author +
+                '}';
     }
-    public Book () {
-        Book book = new Book("Мобильник", 2009, new Author("Стивен", "Кинг"));
-        Book book2 = book;
-        System.out.println(book.equals(book2));
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return yearOfPublication == book.yearOfPublication && NameBook.equals(book.NameBook) && author.equals(book.author);
     }
+
+    @Override
     public int hashCode() {
-        return java.util.Objects.hash(NameBook);
+        return Objects.hash(NameBook, yearOfPublication, author);
     }
 }
